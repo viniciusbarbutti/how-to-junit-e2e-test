@@ -11,7 +11,7 @@ public class Navegador {
 
         // informa o caminho do chromedriver.exe
         String pastaUsuario = System.getProperty("user.home");
-        System.setProperty("webdriver.chrome.driver", pastaUsuario.concat("drivers/chromedriver.exe"));
+        System.setProperty("webdriver.chrome.driver", pastaUsuario.concat("/drivers/chromedriver.exe"));
 
         // criar o navegador (chrome)
         WebDriver navegador = new ChromeDriver();
