@@ -1,1 +1,1 @@
-# how-to-specflow-e2e-test
+# how-to-junit-e2e-test
