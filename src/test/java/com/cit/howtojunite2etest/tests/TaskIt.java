@@ -1,5 +1,6 @@
 package com.cit.howtojunite2etest.tests;
 
+import com.cit.howtojunite2etest.suporte.Navegador;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -10,7 +11,7 @@ public class TaskIt {
 
     @Before
     public void before () {
-
+        this.navegador = Navegador.criarNavegador();
     }
 
     /* url da página de teste: http://www.juliodelima.com.br/taskit */
@@ -47,6 +48,6 @@ public class TaskIt {
 
     @After
     public void after () {
-
+        this.navegador.quit();
     }
 }

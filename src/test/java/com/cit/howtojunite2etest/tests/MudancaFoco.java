@@ -1,9 +1,11 @@
 package com.cit.howtojunite2etest.tests;
 
+import com.cit.howtojunite2etest.suporte.Navegador;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -13,14 +15,18 @@ public class MudancaFoco {
 
     @Before
     public void before () {
-
+        this.navegador = Navegador.criarNavegador();
     }
 
     /* url da página de teste: https://automacaocombatista.herokuapp.com/mudancadefoco/alert */
     @Test
     public void validarJsAlert () {
+        this.navegador.get("https://automacaocombatista.herokuapp.com/mudancadefoco/alert");
 
-        /* implementar e teste automatizado para a validação abaixo */
+        this.navegador.findElement(By.xpath("/html/body/div[2]/div[2]/div[2]/div/div[1]/ul/li[1]/button")).click();
+
+        Alert alert = this.navegador.switchTo().alert();
+        alert.accept();
 
         String result = this.navegador.findElement(By.id("result")).getText();
         Assert.assertEquals("Você clicou no alerta com sucesso!!", result);
@@ -65,6 +71,6 @@ public class MudancaFoco {
 
     @After
     public void after () {
-
+        this.navegador.quit();
     }
 }

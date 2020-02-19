@@ -1,5 +1,6 @@
 package com.cit.howtojunite2etest.tests;
 
+import com.cit.howtojunite2etest.suporte.Navegador;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -12,7 +13,7 @@ public class MouseOver {
 
     @Before
     public void before () {
-
+        this.navegador = Navegador.criarNavegador();
     }
 
     /* url da página de teste: https://automacaocombatista.herokuapp.com/mudancadefoco/janela */
@@ -27,6 +28,6 @@ public class MouseOver {
 
     @After
     public void after () {
-
+        this.navegador.quit();
     }
 }
