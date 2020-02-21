@@ -7,6 +7,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.interactions.Actions;
 
 public class MouseOver {
     private WebDriver navegador;
@@ -20,7 +21,11 @@ public class MouseOver {
     @Test
     public void validarMouseOver () {
 
-        /* implementar e teste automatizado para a validação abaixo */
+        this.navegador.get("https://automacaocombatista.herokuapp.com/iteracoes/mousehover");
+
+        Actions action = new Actions(this.navegador);
+        action.moveToElement(this.navegador.findElement(By.className("activator")));
+        action.perform();
 
         String result = this.navegador.findElement(By.xpath("/html/body/div[2]/div[2]/div[3]/div[2]/div/div[3]/p")).getText();
         Assert.assertEquals("Você usou o mouse hover!", result);
